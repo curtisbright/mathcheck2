@@ -27,6 +27,16 @@ inname = "input/squaredecomp/%s.in"
 resultname = "results/squaredecomp/%s.out"
 logname = "output/squaredecomp/%s.log"
 
+if not os.path.exists("output"):
+        call(["mkdir", "output"])
+if not os.path.exists("output/squaredecomp"):
+	call(["mkdir", "output/squaredecomp"])
+
+if not os.path.exists("results"):
+        call(["mkdir", "results"])
+if not os.path.exists("results/squaredecomp"):
+	call(["mkdir", "results/squaredecomp"])
+
 files = glob.glob(inname % runstr(n, "*", -1))
 
 for f in files:

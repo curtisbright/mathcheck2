@@ -6,16 +6,6 @@ if not os.path.exists("input"):
 if not os.path.exists("input/naive"):
 	call(["mkdir", "input/naive"])
 
-if not os.path.exists("output"):
-        call(["mkdir", "output"])
-if not os.path.exists("output/naive"):
-	call(["mkdir", "output/naive"])
-
-if not os.path.exists("results"):
-        call(["mkdir", "results"])
-if not os.path.exists("results/naive"):
-	call(["mkdir", "results/naive"])
-
 if len(sys.argv) < 2:
 	print "Need order of instance to generate"
 	quit()

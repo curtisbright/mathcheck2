@@ -25,6 +25,16 @@ inname = "input/naive/%s.in"
 resultname = "results/naive/%s.out"
 logname = "output/naive/%s.log"
 
+if not os.path.exists("output"):
+        call(["mkdir", "output"])
+if not os.path.exists("output/naive"):
+	call(["mkdir", "output/naive"])
+
+if not os.path.exists("results"):
+        call(["mkdir", "results"])
+if not os.path.exists("results/naive"):
+	call(["mkdir", "results/naive"])
+
 files = glob.glob(inname % runstr(n, -1, -1))
 
 for f in files:

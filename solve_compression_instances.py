@@ -26,6 +26,16 @@ resultname = "results/comp/%s.out"
 logname = "output/comp/%s.log"
 assumname = "input/comp/%s.assum"
 
+if not os.path.exists("output"):
+        call(["mkdir", "output"])
+if not os.path.exists("output/comp"):
+	call(["mkdir", "output/comp"])
+
+if not os.path.exists("results"):
+        call(["mkdir", "results"])
+if not os.path.exists("results/comp"):
+	call(["mkdir", "results/comp"])
+
 files = glob.glob(assumname % runstr(n, "*", "*"))
 count = 0
 tottime = 0

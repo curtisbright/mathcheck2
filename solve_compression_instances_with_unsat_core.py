@@ -1,5 +1,5 @@
 import time, sys, os.path, glob, math
-from subprocess32 import call, TimeoutExpired
+from subprocess32 import call
 
 sharcnet = False
 
@@ -22,13 +22,25 @@ def runstr(n, c, k):
 		return "%d.%d.%d" % (n, c, k)
 
 inname = "input/comp/%s.in"
-resultname = "results/comp/%s.out"
-logname = "output/comp/%s.log"
+resultname = "results/compunsatcore/%s.out"
+logname = "output/compunsatcore/%s.log"
 assumname = "input/comp/%s.assum"
+
+if not os.path.exists("output"):
+        call(["mkdir", "output"])
+if not os.path.exists("output/compunsatcore"):
+	call(["mkdir", "output/compunsatcore"])
+
+if not os.path.exists("results"):
+        call(["mkdir", "results"])
+if not os.path.exists("results/compunsatcore"):
+	call(["mkdir", "results/compunsatcore"])
 
 files = glob.glob(assumname % runstr(n, "*", "*"))
 tottime = 0
 count = 0
+skipped = 0
+alreadysolved = 0
 unsatcores = []
 
 def skip_instance(list_assumptions, unsatcores):
@@ -38,9 +50,26 @@ def skip_instance(list_assumptions, unsatcores):
 			return True
 	return False
 
+def update_unsatcores(reslines, unsatcores):
+	unsatcore = []
+	for line in reslines[1:]:
+		unsatcore.append(int(line))
+	if len(unsatcore) < 25:
+		unsatcores.append(unsatcore)
+
 for f in files:
 	k = int(f.split(".")[-2])
 	c = int(f.split(".")[-3])
+
+	if os.path.exists(resultname % runstr(n, c, k)):
+		resfile = open(resultname % runstr(n, c, k), "r")
+		reslines = resfile.readlines()
+		if len(reslines) > 0 and "UNSAT" in reslines[0]:
+			update_unsatcores(reslines, unsatcores)
+		resfile.close()
+		if len(reslines) > 0 and "SAT" in reslines[0]:
+			alreadysolved += 1
+			continue
 
 	assumfile = open(assumname % runstr(n, c, k))
 	assumlines = assumfile.readlines()
@@ -50,6 +79,7 @@ for f in files:
 		assumptions.append(int(line))
 
 	if skip_instance(assumptions, unsatcores):
+		skipped += 1
 		continue
 
 	count += 1
@@ -77,12 +107,8 @@ for f in files:
 	resfile = open(resultname % runstr(n, c, k), "r")
 	reslines = resfile.readlines()
 	print "%s time: %0.2f" % (reslines[0][:-1], time)
-	if reslines[0][:-1] == "UNSAT":
-		unsatcore = []
-		for line in reslines[1:]:
-			unsatcore.append(int(line))
-		if len(unsatcore) < 25:
-			unsatcores.append(unsatcore)
+	if "UNSAT" in reslines[0]:
+		update_unsatcores(reslines, unsatcores)
 	resfile.close()
 
-print "solved %d instances in %0.2fs" % (count, tottime)
+print "solved %d instances in %0.2fs, %d instances already solved, %d instances eliminated by using unsat cores" % (count, tottime, alreadysolved, skipped)
