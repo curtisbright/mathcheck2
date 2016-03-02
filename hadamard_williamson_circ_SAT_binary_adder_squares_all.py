@@ -17,12 +17,7 @@
 # are only placeholders used to check the conditions on A, B, C and D.
 # In this script, we obtain the other conditions by using binary adders.
 
-##################################################
-# SEE ALSO
-##################################################
-# hadamard_williamson_circ_SAT_merge_sort.py
-
-##################################################
+#################################################
 # LICENSE:
 ##################################################
 # Copyright (C) 2015  Curtis Bright, Albert Heinle and Saeed Nejati
