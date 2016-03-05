@@ -43,15 +43,13 @@ for f in files:
 	c = int(f.split(".")[-2])
 
 	command = "./maplesat_static " + inname % runstr(n, c, -1) + " " + resultname % runstr(n, c, -1)
-	callcommand = ["./maplesat_static", inname % runstr(n, c, -1), resultname % runstr(n, c, -1)]
 	if sharcnet == True:
 		command = "sqsub -r 24h --mpp=2G -o " + logname % runstr(n, c, -1) + " " + command
-		callcommand = ["sqsub", "-r", "24h", "--mpp=2G", "-o", logname % runstr(n, c, -1)] + callcommand
 
 	logfile = open(logname % runstr(n, c, -1), "w")
 	print command
 	if sharcnet == True:
-		call(callcommand)
+		call(command.split(" "))
 	else:
-		call(callcommand, stdout=logfile)
+		call(command.split(" "), stdout=logfile)
 	logfile.close()

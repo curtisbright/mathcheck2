@@ -46,17 +46,15 @@ for f in files:
 
 	count += 1
 	command = "./maplesat_static -no-pre -assumptions=" + assumname % runstr(n, c, k) + " " + inname % runstr(n, -1, -1) + " " + resultname % runstr(n, c, k)
-	callcommand = ["./maplesat_static", "-no-pre", "-assumptions=" + assumname % runstr(n, c, k), inname % runstr(n, -1, -1), resultname % runstr(n, c, k)]
 	if sharcnet == True:
 		command = "sqsub -r 5m --mpp=2G -o " + logname % runstr(n, c, k) + " " + command
-		callcommand = ["sqsub", "-r", "5m", "--mpp=2G", "-o", logname % runstr(n, c, k)] + callcommand
 
 	logfile = open(logname % runstr(n, c, k), "w")
 	print command
 	if sharcnet == True:
-		call(callcommand)
+		call(command.split(" "))
 	else:
-		call(callcommand, stdout=logfile)
+		call(command.split(" "), stdout=logfile)
 	logfile.close()
 
 	logfile = open(logname % runstr(n, c, k), "r")
