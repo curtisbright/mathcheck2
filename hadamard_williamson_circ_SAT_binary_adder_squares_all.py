@@ -3,26 +3,21 @@
 ##################################################
 # This script takes an input parameter n in NN and prints to the
 # standard output a SAT-instance in DIMACS form, which corresponds
-# to finding three circulant matrices A,B,C and D in {-1,1}^{n x n},
+# to finding three circulant matrices A, B, C and D in {-1,1}^{n x n},
 # that are commuting, symmetric and fulfill the formula
-# A^2 + B^2 + C^2 + D^2 = 4nI_n
-# The respective entries are represented by the first 4*(n/2+1) variables,
-# i.e. variables 1 ... n/2+1 belong to A
-#      variables n/2+2 ... n+4 belong to B
-#      variables n+4 ... 3n/2 + 3 belong to C
-#  and variables 3n/2 + 3 ... 2n+4 belong to D.
-# (reminder: A,B,C and D are assumed to be circulant and symmetric,
-# i.e. they are each completely determined by n/2 + 1 variables and
+# A^2 + B^2 + C^2 + D^2 = 4n*I_n
+# The respective entries are represented by the first 4*(floor(n/2)+1) variables,
+# i.e., variables                1 ...   floor(n/2) + 1 belong to A
+#       variables   floor(n/2) + 2 ... 2*floor(n/2) + 2 belong to B
+#       variables 2*floor(n/2) + 3 ... 3*floor(n/2) + 3 belong to C
+#   and variables 3*floor(n/2) + 4 ... 4*floor(n/2) + 4 belong to D.
+# (reminder: A, B, C and D are assumed to be circulant and symmetric,
+# i.e., they are each completely determined by 4*(floor(n/2)+1) variables and
 # can afterwards be completed by a script.) The other variables
-# are only placeholders used to check the conditions on A,B,C and D.
+# are only placeholders used to check the conditions on A, B, C and D.
 # In this script, we obtain the other conditions by using binary adders.
 
-##################################################
-# SEE ALSO
-##################################################
-# hadamard_williamson_circ_SAT_merge_sort.py
-
-##################################################
+#################################################
 # LICENSE:
 ##################################################
 # Copyright (C) 2015  Curtis Bright, Albert Heinle and Saeed Nejati
