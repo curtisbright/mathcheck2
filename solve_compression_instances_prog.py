@@ -1,5 +1,6 @@
 import time, sys, os.path, glob, math
 from subprocess32 import call, TimeoutExpired
+from mathcheck_common import sq
 
 sharcnet = False
 
@@ -26,14 +27,14 @@ def runstr(n, c, k):
 		return "%d.%d.%d" % (n, c, k)
 
 inname = "input/comp/%s.in"
-resultname = "results/comp/%s.out"
-logname = "output/comp/%s.log"
+resultname = "results/compprog/%s.out"
+logname = "output/compprog/%s.log"
 assumname = "input/comp/%s.assum"
 
 if not os.path.exists("output"): call(["mkdir", "output"])
-if not os.path.exists("output/comp"): call(["mkdir", "output/comp"])
+if not os.path.exists("output/compprog"): call(["mkdir", "output/compprog"])
 if not os.path.exists("results"): call(["mkdir", "results"])
-if not os.path.exists("results/comp"): call(["mkdir", "results/comp"])
+if not os.path.exists("results/compprog"): call(["mkdir", "results/compprog"])
 
 for n in range(n1, n2+1):
 	files = glob.glob(assumname % runstr(n, "*", "*"))
@@ -45,7 +46,7 @@ for n in range(n1, n2+1):
 		c = int(f.split(".")[-3])
 
 		count += 1
-		command = "./maplesat_static -no-pre -assumptions=" + assumname % runstr(n, c, k) + " " + inname % runstr(n, c, -1) + " " + resultname % runstr(n, c, k)
+		command = "./maplesat_static -no-pre -cardinality -xnormult -order={0} -carda={1} -cardb={2} -cardc={3} -cardd={4} -assumptions=".format(n, sq[n][c][0]*(-1 if sq[n][c][0] % 4 == 3 else 1), sq[n][c][1]*(-1 if sq[n][c][1] % 4 == 3 else 1), sq[n][c][2]*(-1 if sq[n][c][2] % 4 == 3 else 1), sq[n][c][3]*(-1 if sq[n][c][3] % 4 == 3 else 1)) + assumname % runstr(n, c, k) + " " + inname % runstr(n, c, -1) + " " + resultname % runstr(n, c, k)
 		if sharcnet == True:
 			command = "sqsub -r 5m --mpp=2G -o " + logname % runstr(n, c, k) + " " + command
 

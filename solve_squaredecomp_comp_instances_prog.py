@@ -1,5 +1,6 @@
 import time, sys, os.path, glob, math
 from subprocess32 import call
+from mathcheck_common import sq
 
 sharcnet = False
 
@@ -28,13 +29,13 @@ def runstr(n, c, k):
 		return "%d.%d.%d" % (n, c, k)
 
 inname = "input/squaredecomp/%s.in"
-resultname = "results/squaredecomp/%s.out"
-logname = "output/squaredecomp/%s.log"
+resultname = "results/squaredecompcomp/%s.out"
+logname = "output/squaredecompcomp/%s.log"
 
 if not os.path.exists("output"): call(["mkdir", "output"])
-if not os.path.exists("output/squaredecomp"): call(["mkdir", "output/squaredecomp"])
+if not os.path.exists("output/squaredecompcomp"): call(["mkdir", "output/squaredecompcomp"])
 if not os.path.exists("results"): call(["mkdir", "results"])
-if not os.path.exists("results/squaredecomp"): call(["mkdir", "results/squaredecomp"])
+if not os.path.exists("results/squaredecompcomp"): call(["mkdir", "results/squaredecompcomp"])
 
 for n in range(n1, n2+1):
 	command = "python generate_squaredecomp_instances.py {0}".format(n)
@@ -45,7 +46,7 @@ for n in range(n1, n2+1):
 	for f in files:
 		c = int(f.split(".")[-2])
 
-		command = "./maplesat_static " + inname % runstr(n, c, -1) + " " + resultname % runstr(n, c, -1)
+		command = "./maplesat_static -no-pre -xnormult -cardinality -ordering -order={0} -carda={1} -cardb={2} -cardc={3} -cardd={4} ".format(n, sq[n][c][0]*(-1 if sq[n][c][0] % 4 == 3 else 1), sq[n][c][1]*(-1 if sq[n][c][1] % 4 == 3 else 1), sq[n][c][2]*(-1 if sq[n][c][2] % 4 == 3 else 1), sq[n][c][3]*(-1 if sq[n][c][3] % 4 == 3 else 1)) + inname % runstr(n, c, -1) + " " + resultname % runstr(n, c, -1)
 		if sharcnet == True:
 			command = "sqsub -r 24h --mpp=2G -o " + logname % runstr(n, c, -1) + " " + command
 

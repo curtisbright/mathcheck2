@@ -78,9 +78,9 @@ def do_add(S,vars, clauses):
 		# 3-bit adder
 		if len(s) >= 3:
 			# Three bits to add together
-			x1 = s.pop()
-			x2 = s.pop()
-			x3 = s.pop()
+			x1 = s.pop(0)
+			x2 = s.pop(0)
+			x3 = s.pop(0)
 
 			clauses.append("-%d %d -%d -%d 0" % (x1, x2, x3, vars+2))
 			clauses.append("-%d -%d %d -%d 0" % (x1, x2, x3, vars+2))
@@ -101,8 +101,8 @@ def do_add(S,vars, clauses):
 		# 2-bit adder
 		if len(s) >= 2:
 			# Two bits to add together
-			x1 = s.pop()
-			x2 = s.pop()
+			x1 = s.pop(0)
+			x2 = s.pop(0)
 
 			clauses.append("%d -%d 0" % (x2, vars+1))
 			clauses.append("-%d -%d %d 0" % (x1, x2, vars+1))

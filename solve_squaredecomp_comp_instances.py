@@ -27,18 +27,18 @@ def runstr(n, c, k):
 	else:
 		return "%d.%d.%d" % (n, c, k)
 
-inname = "input/squaredecomp/%s.in"
-resultname = "results/squaredecomp/%s.out"
-logname = "output/squaredecomp/%s.log"
+inname = "input/squaredecompcomp/%s.in"
+resultname = "results/squaredecompcomp/%s.out"
+logname = "output/squaredecompcomp/%s.log"
 
 if not os.path.exists("output"): call(["mkdir", "output"])
-if not os.path.exists("output/squaredecomp"): call(["mkdir", "output/squaredecomp"])
+if not os.path.exists("output/squaredecompcomp"): call(["mkdir", "output/squaredecompcomp"])
 if not os.path.exists("results"): call(["mkdir", "results"])
-if not os.path.exists("results/squaredecomp"): call(["mkdir", "results/squaredecomp"])
+if not os.path.exists("results/squaredecompcomp"): call(["mkdir", "results/squaredecompcomp"])
 
 for n in range(n1, n2+1):
-	command = "python generate_squaredecomp_instances.py {0}".format(n)
-	call(command.split(" "))
+	#command = "python generate_squaredecomp_comp_instances.py {0}".format(n)
+	#call(command.split(" "))
 
 	files = glob.glob(inname % runstr(n, "*", -1))
 

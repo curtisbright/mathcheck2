@@ -16,15 +16,10 @@ if len(sys.argv) > 2:
 else:
 	n2 = n1
 
-inname = "input/comp/%s.in"
-assumname = "input/comp/%s.assum"
-archivename = "archives/comp/%s.zip"
-compname = "input/comp/%s.comp"
+inname = "input/squaredecompcomp/%s.in"
 
 if not os.path.exists("input"): call(["mkdir", "input"])
-if not os.path.exists("input/comp"): call(["mkdir", "input/comp"])
-if not os.path.exists("archives"): call(["mkdir", "archives"])
-if not os.path.exists("archives/comp"): call(["mkdir", "archives/comp"])
+if not os.path.exists("input/squaredecompcomp"): call(["mkdir", "input/squaredecompcomp"])
 
 def runstr(n, c, k):
 	if k == -1 and c == -1:
@@ -391,8 +386,9 @@ for n in range(n1, n2+1):
 			for k in range(4):
 				for X in toolargecase[case][k]:
 					clauses.append(generate_neg_clause(case, k, p, q, X))
-					print case, k, p, q, X, generate_neg_clause(case, k, p, q, X)
+					#print case, k, p, q, X, generate_neg_clause(case, k, p, q, X)
 
+			'''
 			lenA = len(pos[0])
 			lenB = len(pos[1])
 			lenC = len(pos[2])
@@ -509,6 +505,7 @@ for n in range(n1, n2+1):
 									f.close()
 
 				print "%d/%d solved" % (ai+1, lenA)
+			'''
 
 		f = open(inname % runstr(n, c, -1), "w")
 		f.write("p cnf %d %d\n" % (vars, orignumclauses+len(clauses)))
@@ -516,14 +513,3 @@ for n in range(n1, n2+1):
 			f.write(line)
 		for cl in clauses:
 			f.write(cl+"\n")
-
-	files = glob.glob(assumname % runstr(n,"*","*"))
-	compfiles = glob.glob(compname % runstr(n,"*","*"))
-
-	if files == []:
-		print "No instances generated!"
-	else:
-		print "Archiving %d instances..." % len(files)
-		f = open("out", "w")
-		call(["zip", archivename % runstr(n,-1,-1), inname % runstr(n,-1,-1)] + files + compfiles, stdout=f)
-		f.close()
