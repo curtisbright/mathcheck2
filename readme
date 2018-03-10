@@ -1,3 +1,7 @@
-Source of the scripts used in the MathCheck2 system, as described in the paper "MathCheck2: A SAT+CAS Verifier for Combinatorial Conjectures" at CASC 2016.
+Source of the scripts used in the MathCheck2 system, as described in the following papers:
 
-The programmatic scripts, as described in the JAR paper "Combining SAT Solvers with Computer Algebra Systems to Verify Combinatorial Conjectures" are found in the programmatic branch.
+MathCheck2: A SAT+CAS Verifier for Combinatorial Conjectures
+Combining SAT Solvers with Computer Algebra Systems to Verify Combinatorial Conjectures
+A SAT+CAS Method for Enumerating Williamson Matrices of Even Order
+Enumeration of Complex Golay Pairs via Programmatic SAT
+Applying Computer Algebra Systems and SAT Solvers to the Williamson Conjecture

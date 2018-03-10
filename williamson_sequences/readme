@@ -1,0 +1,8 @@
+Use ./driver.sh n to enumerate Williamson sequences of order n divisible by 2, 3, or 5
+or ./driver.sh n m to enumerate Williamson sequences of orders between n and m (for either even orders or orders 3 mod 6)
+
+The scripts assume that the version of the programmatic SAT solver MapleSAT
+which has been tailored to search for Williamson sequences has been compiled
+and is located in this directory under the name 'maplesat_static'; the
+script ./compile_maplesat.sh will attempt to download and compile this
+custom SAT solver.

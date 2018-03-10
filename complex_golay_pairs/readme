@@ -1,0 +1,8 @@
+Use ./driver.sh n to enumerate complex Golay pairs of order n>1
+or ./driver.sh n m to enumerate complex Golay pairs of orders between n and m
+
+The scripts assume that the version of the programmatic SAT solver MapleSAT
+which has been tailored to search for complex Golay pairs has been compiled
+and is located in this directory under the name 'maplesat_static'; the
+script ./compile_maplesat.sh will attempt to download and compile this
+custom SAT solver.
