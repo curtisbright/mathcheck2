@@ -1,0 +1,7 @@
+Use ./driver.sh n to enumerate best matrices of odd order n divisible by 3
+or ./driver.sh n m to enumerate best matrices of odd orders between n and m divisible by 3
+
+The scripts assume that the version of the programmatic SAT solver MapleSAT
+which has been tailored to search for best matrices of order n has been compiled
+and is located in this directory under the name 'maplesat_static_$n'; use
+./compile_maplesat.sh n to download and compile this custom SAT solver.
