@@ -133,7 +133,7 @@ int main(int argc, char** argv)
 				fft_signal[j] = X[j];
 			fftw_execute(plan);
 			for(int j=1; j<=l/2; j++)
-			{	psds[j] = fft_result[j][0]*fft_result[j][0];
+			{	psds[j] = fft_result[j][0]*fft_result[j][0]+fft_result[j][1]*fft_result[j][1];
 			}
 
 			Bseqns.push_back(X);
