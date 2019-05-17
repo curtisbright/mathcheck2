@@ -4,7 +4,7 @@ Source of the scripts used in the MathCheck2 system, as described in the followi
 * Combining SAT Solvers with Computer Algebra Systems to Verify Combinatorial Conjectures (JAR 2017)
 * A SAT+CAS Method for Enumerating Williamson Matrices of Even Order (AAAI 2018)
 * Enumeration of Complex Golay Pairs via Programmatic SAT (ISSAC 2018)
-* Applying Computer Algebra Systems and SAT Solvers to the Williamson Conjecture
+* Applying Computer Algebra Systems with SAT Solvers to the Williamson Conjecture (JSC 2019)
 * A SAT+CAS Approach to Finding Good Matrices: New Examples and Counterexamples (AAAI 2019)
 * Complex Golay Pairs up to Length 28: A Search via Computer Algebra and Programmatic SAT
 * The SAT+CAS Method for Combinatorial Search with Applications to Best Matrices
