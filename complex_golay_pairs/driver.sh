@@ -36,7 +36,7 @@ do
 	do
 		bin/filter_joins_$n $s
 	done
-	# Run state 2
+	# Run stage 2
 	for s in `seq 0 $((numsplits-1))`
 	do
 		python constructpairs.py $n $s
