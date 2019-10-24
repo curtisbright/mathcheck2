@@ -1,0 +1,15 @@
+Use ./driver.sh to run a SAT+CAS solver and use an incremental SAT instance to
+prove the nonexistence of codewords of weight 15 in a projective plane of order
+ten.
+
+Alternatively, ./driver_with_blocking_clauses.sh does this using a SAT instance
+with blocking clauses (generated using SAT+CAS) to perform symmetry breaking.
+
+Alternatively, ./driver_no_symmetry_breaking.sh does this using a pure SAT
+approach.
+
+The first two scripts assume that the version of the programmatic SAT solver
+MapleSAT which has been tailored to search for codewords of weight 15 has been
+compiled and is located in this directory under the name 'maplesat_exhaustive'.
+The driver scripts will call the script compile_maplesat.sh to download and
+compile this custom SAT solver.
