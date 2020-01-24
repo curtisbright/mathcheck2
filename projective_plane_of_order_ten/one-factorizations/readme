@@ -1,0 +1,8 @@
+Use ./driver.sh to run a SAT+CAS solver to find all 396 nonisomorphic
+1-factorizations of the complete graph on ten vertices.
+
+The script requires the programmatic SAT solver MapleSAT which has been
+tailored to search for 1-factorizations to be located in this directory under
+the name 'maplesat_exhaustive'.  The driver script will call the script
+compile_maplesat.sh to download and compile this custom SAT solver.
+

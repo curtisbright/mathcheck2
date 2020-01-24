@@ -1,0 +1,10 @@
+The driver script will run a cube-and-conquer solver and use a programmatic
+SAT+CAS instance to search for ovals in a projective plane of order ten.  The
+driver script should be given a single integer between 0 and 395 (inclusive) on
+the command-line.  This case # corresponds to the label of the first block; the
+SAT solver will attempt to find four more blocks compatible with the first.
+
+The script assumes that the SAT solvers Lingeling, March_cu, and MapleSAT as
+well as the proof verifier DRAT-trim are located in this directory.  The driver
+script will call compile_tools.sh to download and compile these tools.
+
