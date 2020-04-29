@@ -1,0 +1,10 @@
+Use "./driver.sh case" to solve the given weight 16 case (one of 1a, 1b, 1c, 2,
+3, 4, 5, 6a, 6b, or 6c).
+
+Cases 1a-c are split into many subinstances; to solve subinstance with label i
+use "./block_driver.sh case i".
+
+The script assumes that the SAT solvers Lingeling, March_cu, and MapleSAT as
+well as the proof verifier DRAT-trim are located in this directory.  The driver
+script will call compile_tools.sh and compile_maplesat.sh to download and
+compile these tools.
