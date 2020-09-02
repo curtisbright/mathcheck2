@@ -111,15 +111,11 @@ for i in range(max_lines):
 	for j in range(i+1, max_lines):
 		for k in range(max_columns):
 			for l in range(k+1, max_columns):
-				if print_matrix:
-					continue
 				generate_negative_clause({P[i][k], P[j][k], P[i][l], P[j][l]})
 
 # Generate clauses that say that first 16 columns intersect with remaining columns
 for j in range(16):
 	for i in range(16, max_columns):
-		if print_matrix:
-			continue
 		# Ignore the case when columns i and j already intersect
 		if points_intersect(i, j):
 			continue
@@ -136,8 +132,6 @@ for j in range(16):
 # Generate clauses that say that every light line intersects with every heavy and medium line
 for i in range(9):
 	for j in range(8, max_lines):
-		if print_matrix:
-			continue
 		# Ignore the case when line i and j already intersect
 		if lines_intersect(i, j):
 			continue
@@ -159,8 +153,6 @@ for i in range(1,max_columns):
 
 # Generate clauses that lexicographically order columns that are identical
 for i in identical_cols:
-	if print_matrix:
-		continue
 	prior_identical_cols = 0
 	tmp_col = i
 	while tmp_col-1 in identical_cols:

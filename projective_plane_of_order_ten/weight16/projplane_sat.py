@@ -130,8 +130,6 @@ for i in range(max_lines):
 					continue
 				if remove_blocks and sys.argv[1]=="1a" and l in [41, 42, 43, 44]:
 					continue
-				if print_matrix:
-					continue
 				generate_negative_clause({P[i][k], P[j][k], P[i][l], P[j][l]})
 
 # Generate clauses that say that first 16 columns intersect with remaining columns
@@ -142,8 +140,6 @@ for j in range(16):
 		if remove_blocks and sys.argv[1]=="1b" and i in [39, 40, 41, 42, 43, 44]:
 			continue
 		if remove_blocks and sys.argv[1]=="1a" and i in [41, 42, 43, 44]:
-			continue
-		if print_matrix:
 			continue
 		# Ignore the case when columns i and j already intersect
 		if points_intersect(i, j):
@@ -167,8 +163,6 @@ for i in range(17):
 	if remove_blocks and sys.argv[1]=="1a" and i in [4]:
 		continue
 	for j in range(8, max_lines):
-		if print_matrix:
-			continue
 		# Ignore the case when line i and j already intersect
 		if lines_intersect(i, j):
 			continue
@@ -196,8 +190,6 @@ for i in range(1,max_columns):
 
 # Generate clauses that lexicographically order columns that are identical
 for i in identical_cols:
-	if print_matrix:
-		continue
 	prior_identical_cols = 0
 	tmp_col = i
 	while tmp_col-1 in identical_cols:
