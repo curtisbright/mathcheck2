@@ -4,7 +4,7 @@ if [ ! -f ../march_cu ] || [ ! -f ../lingeling ]
 then
 	if [ ! -d CnC ]
 	then
-		git clone git@github.com:curtisbright/CnC.git
+		git clone https://github.com/curtisbright/CnC.git
 	fi
 	cd CnC
 	git checkout w12
@@ -30,7 +30,7 @@ if [ ! -f ../drat-trim ]
 then
 	if [ ! -d drat-trim ]
 	then
-		git clone git@github.com:curtisbright/drat-trim.git
+		git clone https://github.com/curtisbright/drat-trim.git
 	fi
 	cd drat-trim
 	git checkout trust
@@ -40,7 +40,7 @@ then
 fi
 if [ ! -d maplesat/maplesat ]
 then
-	git clone git@bitbucket.org:JLiangWaterloo/maplesat.git
+	git clone https://bitbucket.org/JLiangWaterloo/maplesat.git
 fi
 if [ ! -f ../maplesat_static ]
 then

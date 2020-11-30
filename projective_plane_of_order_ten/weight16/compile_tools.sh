@@ -5,7 +5,7 @@ if [ ! -s ../march_cu ] || [ ! -s ../lingeling ]
 then
 	if [ ! -d CnC ]
 	then
-		git clone git@github.com:curtisbright/CnC.git
+		git clone https://github.com/curtisbright/CnC.git
 	fi
 	cd CnC
 	if [ ! -f lingeling-bbc-9230380-160707-druplig-009.tar.gz ]
@@ -30,7 +30,7 @@ if [ ! -f ../drat-trim ]
 then
 	if [ ! -d drat-trim ]
 	then
-		git clone git@github.com:curtisbright/drat-trim.git
+		git clone https://github.com/curtisbright/drat-trim.git
 	fi
 	cd drat-trim
 	make
