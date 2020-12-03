@@ -3,7 +3,7 @@
 # Compile programmatic version MapleSAT tailored to search for A1s (requires the Traces library to compile)
 if [ ! -d maplesat ]
 then
-	git clone https://bitbucket.org:cbright/maplesat.git
+	git clone https://bitbucket.org/cbright/maplesat.git
 fi
 cd maplesat
 git checkout projplane_w19_a1
@@ -15,7 +15,7 @@ cd ../..
 # Compile GRATgen proof verifier
 if [ ! -d gratgen-dir ]
 then
-	git clone https://github.com:curtisbright/gratgen.git gratgen-dir
+	git clone https://github.com/curtisbright/gratgen.git gratgen-dir
 fi
 cd gratgen-dir
 git checkout noboost

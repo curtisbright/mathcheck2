@@ -39,7 +39,7 @@ then
 	else
 		# Download precomputed A2s if the A2 enumeration results do not exist
 		echo "A2 results are missing; downloading a list of precomputed A2s"
-		git clone https://github.com:curtisbright/a2s.git
+		git clone https://github.com/curtisbright/a2s.git
 	fi
 elif [ ! -f a2s/$case.complete ]
 then
