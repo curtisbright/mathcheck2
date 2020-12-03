@@ -1,0 +1,11 @@
+Use ./driver.sh to generate and exhaustively solve the A1 instance.  A list of
+all A1s will be generated in 'a1.recorded' and 'a1.rejected' with the recorded
+A1s consisting of a list of all A1s up to isomorphism.  A SAT instance will be
+generated proving that no other A1s exist and the Python script check.py
+verifies that the list of recorded A1s is complete, i.e., each rejected A1 is
+isomorphic to a recorded A1.  Two A1s are verified to be isomorphic using
+canonical labels produced by the library Traces.
+
+The ./compile.sh script will compile a programmatic SAT solver that determines
+which solutions are isomorphic to each other; this requires the Traces library
+to be installed.

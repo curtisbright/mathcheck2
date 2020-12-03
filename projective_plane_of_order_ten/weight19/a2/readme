@@ -1,0 +1,19 @@
+Use './driver.sh all' to generate and solve all the A2 instances or provide the
+case # of the A2 instance to solve as the first argument.  A list of all
+recorded and rejected solutions (possibly partial) will be generated along with
+a collection of labels to translate them into a canonical form.  In each case a
+SAT instance will be generated proving that no complete solutions were missed
+up to isomorphism and the Python script check.py will be used to verify that
+each rejected solution is isomorphic to a recorded solution.  Two solutions are
+verified to be isomorphic using canonical labels produced by the library
+Traces.
+
+Once all A2s up to isomorphism have been generated, to generate all possible
+A2s and generate and solve SAT instances that prove that no other A2s exist use
+'./driver.sh all' from the verify-nonisomorphic subdirectory.  This script also
+verifies that none of the recorded A2s are isomorphic to any other recorded A2,
+i.e., the A2s are mutually nonisomorphic.
+
+The ./compile.sh script will compile a programmatic SAT solver that determines
+which solutions are isomorphic to each other; this requires the Traces library
+to be installed.

@@ -1,0 +1,13 @@
+This directory contains data files associated with each case.
+
+The 'order' files contain the default ordering of the six inside blocks.  Each
+line in the file corresponds with one block.  The line contains the block index
+followed by four indices: the first two indices represent the first and last
+column indices of the block (with the exception of columns that intersect other
+blocks) and the last two indices represent the first and last column indices of
+any undetermined columns that intersect other blocks.
+
+The 'cutoff' files contain experimentally-chosen cube-and-conquer cutoff bounds
+to use in the SAT instances.  There are up to four separate bounds
+corresponding with how many inside blocks (between 3 and 6) were selected to
+appear in the SAT instance (before dropping any blocks, if applicable).

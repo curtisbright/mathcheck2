@@ -1,0 +1,14 @@
+Use './driver.sh n m' to generate and solve instances that attempt to show that
+the mth A2 associated with Lam's case n does not extend to a complete incidence
+matrix.  Alternatively, provide 'all' as the second argument to solve all A2s
+associated with case n.  Certificates will be generated and verified which show
+that each case has no (or possibly a small number) of partial incidence matrix
+completions.
+
+Once all the instances have been solved, use 'final-step/solve.sh all' to
+generate instances which show that each partial solution found cannot be
+extended to a complete six blocks (plus one outside block).
+
+The ./compile.sh script will compile a programmatic SAT solver which generates
+a conflict clause for each solution of the SAT instances and thereby performs
+an exhaustive search.
