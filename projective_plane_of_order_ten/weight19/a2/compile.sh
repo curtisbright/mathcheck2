@@ -15,7 +15,7 @@ cd ../..
 # Compile GRATgen proof verifier
 if [ ! -d gratgen-dir ]
 then
-	git clone https://github.com:curtisbright/gratgen.git gratgen-dir
+	git clone https://github.com/curtisbright/gratgen.git gratgen-dir
 fi
 cd gratgen-dir
 git checkout noboost
