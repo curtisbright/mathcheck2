@@ -41,15 +41,6 @@ then
 		echo "A2 results are missing; downloading a list of precomputed A2s"
 		git clone https://github.com/curtisbright/a2s.git
 	fi
-elif [ ! -f a2s/$case.complete ]
-then
-	if [ -f ../a2/a2s/$case.complete ]
-	then
-		cp ../a2/a2s/$case.complete a2s
-	else
-		echo "Case $case A2s need to be computed first"
-		exit
-	fi
 fi
 
 # Compile MapleSAT and DRAT-trim
@@ -80,6 +71,17 @@ do
 		mkdir -p final-cnf/$case
 		mkdir -p proof/$case
 		mkdir -p log/$case
+
+		if [ ! -f a2s/$case.complete ]
+		then
+			if [ -f ../a2/a2s/$case.complete ]
+			then
+				cp ../a2/a2s/$case.complete a2s
+			else
+				echo "Case $case A2s need to be computed first"
+				continue
+			fi
+		fi
 
 		# Determine how many columns to use in the final SAT instance (minimum # columns used in the previous instances)
 		for f in recorded/$case/$case.*.recorded
