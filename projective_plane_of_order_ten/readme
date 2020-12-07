@@ -1,0 +1,14 @@
+This directory contains source code for resolving Lam's Problem as described in the following papers:
+
+* A SAT-based Resolution of Lam's Problem (AAAI 2021)
+This code is in /weight19 and shows the nonexistence of weight 19 words.
+
+* Unsatisfiability Proofs for Weight 16 Codewords in Lam's Problem (IJCAI 2020)
+This code is in /weight16 and shows the nonexistence of weight 16 words.
+
+* A Nonexistence Certificate for Projective Planes of Order Ten with Weight 15 Codewords (AAECC 2020)
+This code is in /weight15 and shows the nonexistence of weight 15 words.
+
+* Nonexistence Certificates for Ovals in a Projective Plane of Order Ten (IWOCA 2020)
+This code is in /ovals and shows the nonexistence of weight 12 words (ovals)
+using the code in /one-factorizations to find all 1-factorizations of K_10.
