@@ -10,7 +10,10 @@ then
 	git checkout w12
 	if [ ! -f lingeling-bbc-9230380-160707-druplig-009.tar.gz ]
 	then
-		wget http://fmv.jku.at/lingeling/lingeling-bbc-9230380-160707-druplig-009.tar.gz 
+		wget http://fmv.jku.at/lingeling/lingeling-bbc-9230380-160707-druplig-009.tar.gz
+	fi
+	if [ ! -d lingeling-bbc-9230380-160707-druplig-009 ]
+	then
 		tar --extract --file lingeling-bbc-9230380-160707-druplig-009.tar.gz
 		cd lingeling-bbc-9230380-160707-druplig-009
 		./extract-and-compile.sh
