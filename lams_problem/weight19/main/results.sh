@@ -19,7 +19,7 @@ printf "Case\tSimp\tCube\tSolve\tVerify\t(time in sec)\n"
 
 for instno in $range
 do
-	block_selection=`python block_selection.py $case $instno`
+	block_selection=`python2 block_selection.py $case $instno`
 	blocks=`echo $block_selection | cut -d' ' -f1`
 	maxcol=`echo $block_selection | cut -d' ' -f2`
 	inside_blocks=`echo $block_selection | cut -d' ' -f3`

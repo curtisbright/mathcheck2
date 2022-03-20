@@ -76,12 +76,12 @@ do
 	# Hack: A few default representatives produce satisfiable instances so use alternative representatives in those cases
 	if [ $case == "1a" ] && [ $i -eq 171 ]
 	then
-		python expand.py exhaust/$case.$cols.exhaust-blocking.sorted $i 3 > assums/$case.$i.assums
+		python2 expand.py exhaust/$case.$cols.exhaust-blocking.sorted $i 3 > assums/$case.$i.assums
 	elif [ $case == "1c" ] && ([ $i -eq 63 ] || [ $i -eq 103 ])
 	then
-		python expand.py exhaust/$case.$cols.exhaust-blocking.sorted $i 1 > assums/$case.$i.assums
+		python2 expand.py exhaust/$case.$cols.exhaust-blocking.sorted $i 1 > assums/$case.$i.assums
 	else
-		python expand.py exhaust/$case.$cols.exhaust-blocking.sorted $i 0 > assums/$case.$i.assums
+		python2 expand.py exhaust/$case.$cols.exhaust-blocking.sorted $i 0 > assums/$case.$i.assums
 	fi
 	
 	# In case 1b use symmetry breaking clauses in the instance given to cubing solver
@@ -126,12 +126,12 @@ do
 		# Hack: A few default representatives produce satisfiable instances so use alternative representatives in those cases
 		if [ $case == "1a" ] && [ $i -eq 171 ]
 		then
-			hardassums=$(python expand.py -commas exhaust/$case.$cols.exhaust-blocking.sorted $i 3)
+			hardassums=$(python2 expand.py -commas exhaust/$case.$cols.exhaust-blocking.sorted $i 3)
 		elif [ $case == "1c" ] && ([ $i -eq 63 ] || [ $i -eq 103 ])
 		then
-			hardassums=$(python expand.py -commas exhaust/$case.$cols.exhaust-blocking.sorted $i 1)
+			hardassums=$(python2 expand.py -commas exhaust/$case.$cols.exhaust-blocking.sorted $i 1)
 		else
-			hardassums=$(python expand.py -commas exhaust/$case.$cols.exhaust-blocking.sorted $i 0)
+			hardassums=$(python2 expand.py -commas exhaust/$case.$cols.exhaust-blocking.sorted $i 0)
 		fi
 		# Setting variable 8881+i to false tells the SAT solver that we are solving case i (and therefore all blocks must have labels >= i)
 		hardassums="$hardassums,-$((8881+i))"

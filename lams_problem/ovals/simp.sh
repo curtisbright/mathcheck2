@@ -10,13 +10,13 @@ fi
 # Generate SAT instance for blocks 1-5 (zero-based numbering)
 if [ ! -f cnf/b1-5.cnf ]
 then
-	python projplane_sat.py 1 5 > cnf/b1-5.cnf
+	python2 projplane_sat.py 1 5 > cnf/b1-5.cnf
 fi
 
 # Generate assumptions specifying the 1-factorization with given case #
 if [ ! -f cnf/$l.assums ]
 then
-	python expand_assums.py k10_1-factorizations $l > cnf/$l.assums
+	python2 expand_assums.py k10_1-factorizations $l > cnf/$l.assums
 fi
 
 # Generate SAT instance for blocks 1-5 with block 1 defined by the 1-factorization with given case #

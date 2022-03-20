@@ -4,7 +4,7 @@
 
 if [ ! -f cnf/b1-6.cnf ]
 then
-	python projplane_sat.py 1 6 > cnf/b1-6.cnf
+	python2 projplane_sat.py 1 6 > cnf/b1-6.cnf
 fi
 
 cat exhaust/b1-5.*.exhaust > exhaust/b1-5.all

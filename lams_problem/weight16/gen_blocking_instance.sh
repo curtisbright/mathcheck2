@@ -28,7 +28,7 @@ fi
 # Generate weight 16 incidence constraints up to first block
 if [ ! -s cnf/$case.$cols.cnf ]
 then
-	python projplane_sat.py $case $cols > cnf/$case.$cols.cnf
+	python2 projplane_sat.py $case $cols > cnf/$case.$cols.cnf
 fi
 
 # Exhaustively find all nonequivalent instances of first block and sort them by their automorphism group sizes
@@ -39,21 +39,21 @@ then
 	eval $command
 	cut -c1-183 exhaust/$case.$cols.exhaust-withsizes > exhaust/$case.$cols.exhaust
 	echo "Sorting the possible representatives of the first block by the size of their automorphism groups..."
-	python sort_exhaust.py exhaust/$case.$cols.exhaust-withsizes exhaust/$case.$cols.exhaust exhaust/$case.$cols.exhaust-blocking
+	python2 sort_exhaust.py exhaust/$case.$cols.exhaust-withsizes exhaust/$case.$cols.exhaust exhaust/$case.$cols.exhaust-blocking
 fi
 
 # Generate weight 16 incidence constraints including all blocks
 if [ ! -s cnf/$case.cnf ]
 then
-	python projplane_sat.py $case > cnf/$case.cnf
+	python2 projplane_sat.py $case > cnf/$case.cnf
 fi
 
 # Generate block symmetry breaking method clauses
 if [ ! -s exhaust/$case.$cols.exhaust-cnf ]
 then
 	echo "Generating a single SAT instance containing all the symmetry breaking clauses..."
-	python gen_block_clauses_icnf.py $case
-	python gen_block_clauses_cnf.py $case
+	python2 gen_block_clauses_icnf.py $case
+	python2 gen_block_clauses_cnf.py $case
 fi
 
 # Generate a single SAT instance containing all incidence constraints and block symmetry breaking clauses

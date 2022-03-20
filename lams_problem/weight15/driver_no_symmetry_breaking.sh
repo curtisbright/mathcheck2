@@ -17,7 +17,7 @@ else
 	n=$1
 fi
 
-python projplane_sat.py $n $max_columns > cnf/$n.cnf
+python2 projplane_sat.py $n $max_columns > cnf/$n.cnf
 
 command="./maplesat_static cnf/$n.cnf"
 echo $command

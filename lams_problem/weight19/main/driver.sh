@@ -110,7 +110,7 @@ do
 	then
 		block_selection=`sed "$((i+1))q;d" a2s/$case.block_selection`
 	else
-		block_selection=`python block_selection.py $case $i`
+		block_selection=`python2 block_selection.py $case $i`
 	fi
 	blocks=`echo $block_selection | cut -d' ' -f1`
 	maxcol=`echo $block_selection | cut -d' ' -f2`

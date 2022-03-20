@@ -8,7 +8,7 @@ then
 	exit
 fi
 
-python filter_units.py cnf/b1-5.$l.cnf > cnf/b1-5.$l.units
+python2 filter_units.py cnf/b1-5.$l.cnf > cnf/b1-5.$l.units
 cat cnf/b1-5.$l.simp.cnf cnf/b1-5.$l.units > cnf/b1-5.$l.simp.with.units.cnf
 
 numclauses=$(wc -l < cnf/b1-5.$l.simp.with.units.cnf)

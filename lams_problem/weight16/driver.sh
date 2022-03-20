@@ -65,7 +65,7 @@ fi
 # Generate SAT instance
 if [ ! -s cnf/$case.lex.cnf ]
 then
-	python projplane_sat_lex.py $case > cnf/$case.lex.cnf
+	python2 projplane_sat_lex.py $case > cnf/$case.lex.cnf
 fi
 
 # Simplify SAT instance

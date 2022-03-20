@@ -166,7 +166,7 @@ if __name__=='__main__':
   except:
     print "This script needs to be called with an integer argument, indicating \
 the size of the respective A, B, C, D matrices. I.e.:\n\
-python %s n\n\
+python2 %s n\n\
 where n>1 is an integer."%sys.argv[0]
     sys.exit(-1)
   vars, clauses = create_vars_and_clauses(n)

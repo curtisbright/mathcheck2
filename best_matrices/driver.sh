@@ -17,8 +17,8 @@ else
 	./sortpairs.sh $n
 	./join_pairedmatchings $n
 	./remove_equivalent_matchedpairs $n
-	python generate_compstring_instances.py $n
-	python solve_compstring_instances.py $n
+	python2 generate_compstring_instances.py $n
+	python2 solve_compstring_instances.py $n
 	./remove_equivalent_exhaust $n
-	python print_timings_table.py $n
+	python2 print_timings_table.py $n
 fi

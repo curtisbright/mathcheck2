@@ -38,7 +38,7 @@ if not os.path.exists("results"): call(["mkdir", "results"])
 if not os.path.exists("results/squaredecompcomp"): call(["mkdir", "results/squaredecompcomp"])
 
 for n in range(n1, n2+1):
-	command = "python generate_squaredecomp_instances.py {0}".format(n)
+	command = "python2 generate_squaredecomp_instances.py {0}".format(n)
 	call(command.split(" "))
 
 	files = glob.glob(inname % runstr(n, "*", -1))

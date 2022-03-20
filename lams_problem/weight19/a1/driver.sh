@@ -7,7 +7,7 @@ then
 fi
 
 # Generate A1 SAT instance
-command="python satgen_a1.py > a1.cnf"
+command="python2 satgen_a1.py > a1.cnf"
 echo $command
 eval $command
 
@@ -35,6 +35,6 @@ eval $command
 grep "VERIFIED" a1.check.log
 
 # Verify that all rejected solutions are isomorphic to one of the recorded solutions
-command="python check.py"
+command="python2 check.py"
 echo $command
 eval $command

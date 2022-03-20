@@ -39,11 +39,11 @@ do
 	# Run stage 2
 	for s in `seq 0 $((numsplits-1))`
 	do
-		python constructpairs.py $n $s
+		python2 constructpairs.py $n $s
 	done
 	# Run postprocessing
 	cat pairs/pairs.$n.*.txt > pairs/pairs.$n.txt
-	python record_golay_counts.py $n
+	python2 record_golay_counts.py $n
 done
 # Print table of counts
-python print_counts_table.py $1 $end
+python2 print_counts_table.py $1 $end

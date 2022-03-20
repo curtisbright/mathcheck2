@@ -31,9 +31,9 @@ else
 		./sortpairs.sh $n $c
 		./join_pairedmatchings $n $c
 		./remove_equivalent_matchedpairs $n $c
-		python generate_compstring_instances.py $n $c
-		python solve_compstring_instances.py $n $c
+		python2 generate_compstring_instances.py $n $c
+		python2 solve_compstring_instances.py $n $c
 		./remove_equivalent_exhaust $n
 	done
-	python print_timings_table.py $1 $u
+	python2 print_timings_table.py $1 $u
 fi

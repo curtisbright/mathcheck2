@@ -34,7 +34,7 @@ fi
 for case in $range
 do
 	# Generate A2 SAT instance for this case
-	command="python satgen_a2.py $case > cnf/a2.$case.cnf"
+	command="python2 satgen_a2.py $case > cnf/a2.$case.cnf"
 	echo $command
 	eval $command
 
@@ -62,7 +62,7 @@ do
 	grep "VERIFIED" log/a2.$case.check
 
 	# Verify that all rejected solutions are isomorphic to one of the recorded solutions
-	command="python check.py $case | tee log/a2.$case.tracescheck"
+	command="python2 check.py $case | tee log/a2.$case.tracescheck"
 	echo $command
 	eval $command
 done

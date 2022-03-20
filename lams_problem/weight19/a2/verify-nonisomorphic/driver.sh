@@ -16,7 +16,7 @@ fi
 case=$1
 
 # Generate base SAT instance
-command="python ../satgen_a2.py $case > cnf/$case.cnf"
+command="python2 ../satgen_a2.py $case > cnf/$case.cnf"
 echo $command
 eval $command
 

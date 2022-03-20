@@ -30,8 +30,8 @@ do
 	done
 	for s in `seq 0 $((numsplits-1))`
 	do
-		python constructpairs.py $n $s
+		python2 constructpairs.py $n $s
 	done
 	cat pairs/pairs.$n.*.txt > pairs/pairs.$n.txt
-	python record_golay_counts.py $n
+	python2 record_golay_counts.py $n
 done

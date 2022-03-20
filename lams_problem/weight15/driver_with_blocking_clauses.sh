@@ -11,7 +11,7 @@ then
 	./compile_maplesat.sh
 fi
 
-python projplane_sat.py 27 $max_columns > cnf/27.cnf
+python2 projplane_sat.py 27 $max_columns > cnf/27.cnf
 
 if [ -f exhaust/27.exhaust ]
 then
@@ -34,7 +34,7 @@ else
 	n=$1
 fi
 
-python projplane_sat.py $n $max_columns > cnf/$n.cnf
+python2 projplane_sat.py $n $max_columns > cnf/$n.cnf
 
 cat cnf/$n.cnf exhaust/27.exhaust2 > cnf/$n.blocking.cnf
 numclauses=$(wc -l < cnf/$n.blocking.cnf)

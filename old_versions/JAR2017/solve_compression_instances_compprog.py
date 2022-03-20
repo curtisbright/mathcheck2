@@ -40,7 +40,7 @@ if not os.path.exists("results/compprog"): call(["mkdir", "results/compprog"])
 
 for n in range(n1, n2+1):
     # Generate SAT instance
-    #command = "python generate_compression_instances.py {0}".format(n)
+    #command = "python2 generate_compression_instances.py {0}".format(n)
     #call(command.split(" "))
 
     files = glob.glob(compname % runstr(n, "*", "*"))
@@ -71,7 +71,7 @@ for n in range(n1, n2+1):
         #        tottime += time
         #logfile.close()
 
-        call("python read_results.py {0} {1}".format(resultname % runstr(n, c, k), n).split(" "))
+        call("python2 read_results.py {0} {1}".format(resultname % runstr(n, c, k), n).split(" "))
         #resfile = open(resultname % runstr(n, c, k), "r")
         #reslines = resfile.readlines()
         #print "%s time: %0.2f" % (reslines[0][:-1], time)

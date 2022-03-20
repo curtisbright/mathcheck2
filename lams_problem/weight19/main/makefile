@@ -5,14 +5,14 @@ base-cnf/%.base-cnf:
 	@case=`echo $* | cut -d'/' -f1`; \
 	blocks=`echo $* | cut -d'.' -f2 | cut -d'-' -f1`; \
 	maxcol=`echo $* | cut -d'.' -f2 | cut -d'-' -f2`; \
-	command="python satgen_main.py $$case $$blocks $$maxcol > $@"; \
+	command="python2 satgen_main.py $$case $$blocks $$maxcol > $@"; \
 	echo $$command; \
 	eval $$command;
 a2clauses/%.a2clauses:
 	@case=`echo $* | cut -d'/' -f1`; \
 	blocks=`echo $* | cut -d'.' -f2 | cut -d'-' -f1`; \
 	i=`echo $* | cut -d'.' -f3`; \
-	command="python a2_clauses.py $$case $$blocks $$i > $@"; \
+	command="python2 a2_clauses.py $$case $$blocks $$i > $@"; \
 	eval $$command;
 cnf/%.cnf: base-cnf/$$(basename %).base-cnf a2clauses/%.a2clauses
 	@VARS=`tail a2clauses/$*.a2clauses -n 1 | cut -d' ' -f6`; \
@@ -32,7 +32,7 @@ final-cnf/%.final-cnf:
 	@case=`echo $* | cut -d'/' -f1`; \
 	blocks=`echo $* | cut -d'.' -f2 | cut -d'-' -f1`; \
 	maxcol=`echo $* | cut -d'.' -f2 | cut -d'-' -f2`; \
-	command="python satgen_main.py $$case $$blocks $$maxcol -no-lex > $@"; \
+	command="python2 satgen_main.py $$case $$blocks $$maxcol -no-lex > $@"; \
 	echo $$command; \
 	eval $$command;
 recorded/%.recorded-full: recorded/%.recorded cnf/%.cnf

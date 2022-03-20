@@ -9,7 +9,7 @@ then
 	./compile_maplesat.sh
 fi
 
-python projplane_sat.py 1 1 > cnf/b1.cnf
+python2 projplane_sat.py 1 1 > cnf/b1.cnf
 
 rm exhaust/b1.exhaust
 
