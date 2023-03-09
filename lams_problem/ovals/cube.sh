@@ -9,7 +9,7 @@ fi
 
 if [ ! -f cnf/b1-5.$l.simp.cnf ]
 then
-	./driver_simp.sh $l
+	./simp.sh $l
 fi
 
 # Generate list of cubes for SAT instance
