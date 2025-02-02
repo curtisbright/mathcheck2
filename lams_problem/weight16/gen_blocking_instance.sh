@@ -61,6 +61,6 @@ if [ ! -s cnf/$case.blocking.combine.cnf ]
 then
 	cat cnf/$case.cnf exhaust/$case.$cols.exhaust-cnf.sorted > cnf/$case.blocking.combine.cnf
 	numclauses=$(wc -l cnf/$case.blocking.combine.cnf | cut -d ' ' -f1)
-	num=$(wc -l exhaust/$case.$cols.exhaust-cnf.sorted | cut -d ' ' -f1)
-	sed -i -E "s/p cnf ([0-9]*) ([0-9]*)/p cnf $((8880+num)) $((numclauses-1))/" cnf/$case.blocking.combine.cnf
+	num=$(tail -n 1 exhaust/$case.$cols.exhaust-cnf.sorted | cut -d ' ' -f1)
+	sed -i -E "s/p cnf ([0-9]*) ([0-9]*)/p cnf $((-num)) $((numclauses-1))/" cnf/$case.blocking.combine.cnf
 fi
